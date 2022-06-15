@@ -1,0 +1,10 @@
+name = "my-worker"
+main = "src/index.ts"
+compatibility_date = "2022-06-05"
+
+# [secrets]
+# SECRET_TELEGRAM_API_TOKEN
+# SECRET_TWITTER_BEARER_TOKEN
+# SECRET_NOTION_API_KEY
+# TWITTER_API_KEY
+# TWITTER_API_SECRET
