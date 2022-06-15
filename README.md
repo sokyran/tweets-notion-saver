@@ -1,5 +1,13 @@
 # Save Tweets to Notion using Cloudflare and Telegram
 
+## Showcase
+
+<img width="590" alt="image" src="https://user-images.githubusercontent.com/28529576/173915581-9dc1921c-3bae-4eac-9a15-e62cdcd9e91b.png">
+
+
+<img width="901" alt="image" src="https://user-images.githubusercontent.com/28529576/173913201-2493760a-141a-409a-bde1-00fdd3385b72.png">
+
+
 ## Install local environment
 
 
