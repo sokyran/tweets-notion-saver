@@ -14,7 +14,7 @@
 0. Create Telegram bot 
 1. Create Cloudflare Worker
 2. Create Notion Database 
-3. Look for `ENVIRONMENT` type in src/types.ts and set all secret with `wrangler secret put SECRET_SOMETHING`
+3. Look for `ENVIRONMENT` type in `src/types.ts` and set all secret with `wrangler secret put SECRET_SOMETHING`
 4. `npm i`
 5. `wrangler dev`
 6. `ngrok http http://localhost:8787`
