@@ -37,11 +37,7 @@ async function updateNotionPage(notion: Client, pageId: string, newTitle: string
       properties: {
         title: {
           title: [
-            { 
-              text: {
-                content: newTitle,
-              },
-            },
+            { text: { content: newTitle } },
           ],
         },
       },

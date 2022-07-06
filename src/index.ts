@@ -43,12 +43,10 @@ export default {
 
     const text = message.text ?? '';
     const isURL = text.startsWith('https://');
-    const tweetUrl = text.indexOf('?') > 0 ?  text.slice(0, text.indexOf('?')) : text;
+    const tweetUrl = text.indexOf('?') > 0 ? text.slice(0, text.indexOf('?')) : text;
     const tweetId = tweetUrl.split('/').pop();
 
     const secondsFromLastMessage = Math.floor((Date.now() - millisFromLastMessage) / 1000);
-
-    console.log(lastCreatedNotionPageId);
 
     if (secondsFromLastMessage <= 30 && !isURL && lastCreatedNotionPageId) {
       try {
