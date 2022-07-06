@@ -68,7 +68,12 @@ export default {
 
         const proccesed = processTweet(tweet, tweetUrl);
 
-        const { id } = await saveToNotion(notion, env.SECRET_NOTIOB_DB, proccesed.title, proccesed.authorPhoto, tweetUrl);
+        const { id } = await saveToNotion({
+          notion, 
+          notionDb: env.SECRET_NOTIOB_DB, 
+          url: tweetUrl,
+          tweet: proccesed,
+        });
         lastCreatedNotionPageId = id;
 
         await sendMessage('__yep__, seems like added to your db 👌', true);

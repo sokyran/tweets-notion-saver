@@ -1,6 +1,21 @@
 import type { Client } from '@notionhq/client'
+import { ProccesedTweet } from '../types';
 
-async function saveToNotion(notion: Client, notionDb: string, text: string, icon: string, url: string) {
+type SaveToNotionProps = {
+  notion: Client,
+  notionDb: string,
+  url: string,
+  tweet: ProccesedTweet,
+}
+
+async function saveToNotion({
+  notion,
+  notionDb,
+  tweet,
+  url,
+}: SaveToNotionProps) {
+  const { title, tweetText, authorName, authorPhoto: icon, photos: pictures} = tweet;
+
   try {
     return await notion.pages.create({
       parent: { database_id: notionDb },
@@ -12,18 +27,39 @@ async function saveToNotion(notion: Client, notionDb: string, text: string, icon
       },
       properties: {
         title: {
-          title: [
-            {
-              text: {
-                content: text,
+          title: [{ text: { content: title } }],
+        },
+        Link: { url },
+        Author: {
+          "rich_text": [
+            { text: { content: authorName }},
+          ]
+        }
+      },
+      children: [
+        {
+          object: 'block',
+          callout: {
+            rich_text: [{ text: { content: tweetText } }],
+            icon: {
+              external: {
+                url: icon,
               },
             },
-          ],
+            children: pictures?.map((pictureUrl) => (
+              {
+                type: 'image',
+                image: {
+                  type: 'external',
+                  external: {
+                    url: pictureUrl,
+                  },
+                }
+              }
+            ))
+          },
         },
-        Link: {
-          url,
-        },
-      },
+      ],
     })
   } catch (error: any) {
     throw new Error(`Couldn't save to Notion: ${error.message}`)
