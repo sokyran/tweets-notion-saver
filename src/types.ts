@@ -39,3 +39,12 @@ export type Tweet = {
     }>
   },
 }
+
+export type ProccesedTweet = {
+  title: string
+  tweetText: string
+  authorName: string
+  authorPhoto: string
+  tweetUrl: string
+  photos: string[]
+}

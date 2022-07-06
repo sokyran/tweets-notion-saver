@@ -1,14 +1,20 @@
-import type { TweetError, Tweet } from '../types'
+import type { TweetError, Tweet, ProccesedTweet } from '../types'
 
-const processTweet = (tweet: Tweet, tweetUrl: string) => {
+const processTweet = (tweet: Tweet, tweetUrl: string): ProccesedTweet => {
   const picUrlRegex = /( ?https:\/\/t\.co\/[\d\w]+)+$/;
-  const title = tweet.data.text.replace(picUrlRegex, '').trim();
+  const tweetText = tweet.data.text.replace(picUrlRegex, '').trim();
+  const title = tweetText.split('\n')[0];
   const authorName = tweet.includes.users[0].name;
   const authorPhoto = tweet.includes.users[0].profile_image_url;
-  const photos = tweet.includes.media ? tweet.includes.media: [];
+  const mediaObjects = tweet.includes.media ?? [];
 
   return {
-    title, authorName, authorPhoto, tweetUrl, photos,
+    title,
+    tweetText,
+    authorName,
+    authorPhoto,
+    tweetUrl,
+    photos: mediaObjects.map((pic) => pic.url),
   }
 }
 
