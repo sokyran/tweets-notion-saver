@@ -11,7 +11,7 @@
     "publish": "wrangler publish"
   },
   "dependencies": {
-    "@notionhq/client": "^1.0.4",
+    "@notionhq/client": "^2.1.1",
     "@types/node-telegram-bot-api": "^0.57.1",
     "axios": "^0.27.2"
   }

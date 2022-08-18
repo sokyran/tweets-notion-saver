@@ -28,18 +28,7 @@ export default {
       })
     );
 
-    const fetchWithPatch = async (
-      url: Parameters<typeof fetch>[0],
-      init: Parameters<typeof fetch>[1]
-    ): ReturnType<typeof fetch> => {
-      if (init?.method === 'patch') {
-        // @ts-ignore
-        init.method = 'PATCH';
-      };
-      return await fetch(url, init);
-    };
-
-    const notion = new Client({ auth: env.SECRET_NOTION_API_KEY, fetch: fetchWithPatch });
+    const notion = new Client({ auth: env.SECRET_NOTION_API_KEY });
 
     const text = message.text ?? '';
     const isURL = text.startsWith('https://');
