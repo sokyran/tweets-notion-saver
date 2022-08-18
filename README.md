@@ -8,6 +8,14 @@
 <img width="901" alt="image" src="https://user-images.githubusercontent.com/28529576/173913201-2493760a-141a-409a-bde1-00fdd3385b72.png">
 
 
+## Requirements
+
+0. Register a Telegram bot
+1. You need to get Twitter developer account first, so that you can parse tweets with their API
+2. You also need to create API key for Notion page, but that's not so hard
+3. Create Cloudflare worker, install their CLI
+4. Install ngrok
+
 ## Install local environment
 
 
