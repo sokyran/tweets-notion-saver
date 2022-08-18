@@ -10,10 +10,10 @@
 
 ## Requirements
 
-0. Register a Telegram bot
-1. You need to get Twitter developer account first, so that you can parse tweets with their API
+0. Register a Telegram account
+1. You need to get Twitter developer account, so that you can parse tweets with their API
 2. You also need to create API key for Notion page, but that's not so hard
-3. Create Cloudflare worker, install their CLI
+3. Register Cloudflare account, install their CLI
 4. Install ngrok
 
 ## Install local environment
@@ -22,7 +22,7 @@
 0. Create Telegram bot 
 1. Create Cloudflare Worker
 2. Create Notion Database 
-3. Look for `ENVIRONMENT` type in `src/types.ts` and set all secret with `wrangler secret put SECRET_SOMETHING`
+3. Look for `ENVIRONMENT` type in `src/types.ts` and set all secrets with `wrangler secret put SECRET_SOMETHING`
 4. `npm i`
 5. `wrangler dev`
 6. `ngrok http http://localhost:8787`
