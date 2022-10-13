@@ -6,7 +6,9 @@ const processTweet = (tweet: Tweet, tweetUrl: string): ProccesedTweet => {
   const title = tweetText.split('\n')[0];
   const authorName = tweet.includes.users[0].name;
   const authorPhoto = tweet.includes.users[0].profile_image_url;
+
   const mediaObjects = tweet.includes.media ?? [];
+  const photoMediaObjects = mediaObjects.filter((media) => media.type === 'photo');
 
   return {
     title,
@@ -14,7 +16,7 @@ const processTweet = (tweet: Tweet, tweetUrl: string): ProccesedTweet => {
     authorName,
     authorPhoto,
     tweetUrl,
-    photos: mediaObjects.map((pic) => pic.url),
+    photos: photoMediaObjects.map((pic) => pic.url),
   }
 }
 
